@@ -59,7 +59,7 @@ mongoose
     let makes = []
     
   const carMakes = async()=> {
-
+    try{
     const cars = await Cars.find({})
 
     for(let car of cars){
@@ -71,7 +71,9 @@ mongoose
     }
     
     makes.sort()
-    
+    } catch(e){
+        console.log(e)
+    }
   }
 
   carMakes()
