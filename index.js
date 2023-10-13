@@ -22,7 +22,7 @@ app.set("view engine", "ejs");
 
 
 mongoose
-.connect(process.env.MONGO_URL)
+.connect(process.env.MONGODB_URL)
 .then(() => {
     console.log("MONGO CONNECTION OPEN!!!");
   })
