@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+
+    <title>Database Main Page</title>
+</head>
+<body>
+    
+    <ul class="makesUL">
+        
+        <h1 style="margin-bottom: 50px;">Choose Car Make: </h1>
+
+        <% for(let make of makes) {%>
+            <img src="http://192.168.1.10:3000/retrieve/<%= make.toLowerCase() %>.png" alt="" style="width: 200px;">
+            
+            <li><a href="/<%= make %>" ><%= make %></a></li>
+
+        <% } %>
+
+    </ul>
+
+</body>
+</html>

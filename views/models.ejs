@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <title><%= make %> - Models</title>
+</head>
+<body>
+    
+    <h1>Choose Model: </h1>
+
+    <ul>
+        <% for (let model of models) {
+            let editedModel = model
+            if(typeof editedModel == "string"){
+            if (editedModel.includes("/") === true) {
+                editedModel = editedModel.replace(/\//g, '%2F');
+            }
+        }
+        %>
+    
+        <li>  <a href="/<%= make %>/<%= editedModel %>"><%= model %></a>  </li>
+    
+        <% } %>
+    </ul>
+    
+
+</body>
+</html>

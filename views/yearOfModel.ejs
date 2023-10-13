@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Results: </h1>
+
+    <ul>
+
+        <% for(let car of cars) {%>
+
+        <li>  
+            <div class="car-info">
+
+                <h2>Model: <%= car.model %> - <%= car.year %>: </h2>
+                <h3>Cylinders: <%= car.cylinders %></h3>
+                <h3>Displacement: <%= car.displ %> L</h3>
+                <h3>Drive: <%= car.drive %></h3>
+                <h3>Transmission: <%= car.trany %></h3>
+                <h3>Class: <%= car.VClass %></h3>
+
+            </div>
+        </li>
+
+        <% } %>
+    </ul>
+
+
+</body>
+</html>

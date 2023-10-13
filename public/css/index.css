@@ -1,0 +1,76 @@
+@import url("https://use.typekit.net/rmo1elf.css");
+
+*{
+  font-family: "dashiell-text", sans-serif;
+}
+
+a:link {
+    color: white;
+  }
+  
+  a:visited {
+    color: white;
+  }
+  
+  a:hover {
+    color: white;
+  }
+  
+  a:active {
+    color: white;
+  }
+  
+  a:link, a:visited {
+    text-decoration: none;
+  }
+
+  body {
+    display: flex; justify-content: center;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  a{
+    font-size: 20px;
+    border: 1px solid white;
+    border-radius: 1px;
+    padding: 5px 10px;
+  }
+
+  h1{
+    color: white;
+  }
+
+  li {
+    text-align: center;
+    list-style-type: none;
+    margin-bottom: 100px;
+  }
+
+  body{
+    display: flex;
+   background: #212A3E;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .makesUL{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .makesUL img{
+    margin-bottom: 20px;
+  }
+
+  .car-info h2 {
+    color: white;
+  }
+
+  .car-info h3{
+    text-align: start;
+    color: white;
+  }
