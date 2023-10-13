@@ -1,4 +1,4 @@
-require('dotenv').config()
+
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -22,7 +22,7 @@ app.set("view engine", "ejs");
 
 
 mongoose
-.connect(process.env.MONGODB_URL)
+.connect("mongodb+srv://douqa20:h3zBgOBCSCbP1yew@carsdatabase.pia5oyg.mongodb.net/Cars")
 .then(() => {
     console.log("MONGO CONNECTION OPEN!!!");
   })

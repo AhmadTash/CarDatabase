@@ -1,11 +1,11 @@
-require('dotenv').config({path: '../.env'});
+
 const mongoose = require('mongoose');
 
 
 
 
 mongoose
-.connect(process.env.MONGODB_URL).then(() => {
+.connect("mongodb+srv://douqa20:h3zBgOBCSCbP1yew@carsdatabase.pia5oyg.mongodb.net/Cars").then(() => {
     console.log('connected to MongoDB')
 })
 .catch((error) => {
