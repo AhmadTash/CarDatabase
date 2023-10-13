@@ -79,14 +79,14 @@ mongoose
 
 
 
-app.get("/makes", async(req, res) => {
+app.get("/makes", wrapAsync(async(req, res) => {
 
     
     res.render("index", { makes })
 
-})
+}))
 
-app.get("/:make", async(req, res) => {
+app.get("/:make", wrapAsync(async(req, res) => {
     const { make } = req.params;
     const cars = await Cars.find({make:make})
     let models = []
@@ -101,10 +101,10 @@ app.get("/:make", async(req, res) => {
     
 
     res.render("models", { make, models })
-})
+}))
 
 
-app.get('/retrieve/:imageName', async (req, res) => {
+app.get('/retrieve/:imageName', wrapAsync(async(req, res) => {
   const imageName = req.params.imageName;
   
   try {
@@ -124,10 +124,10 @@ app.get('/retrieve/:imageName', async (req, res) => {
       console.error('Error retrieving image:', error);
       res.status(500).send('Internal Server Error');
     }
-  });
+  }));
 
 
-  app.get("/:make/:model", async (req, res) => {
+  app.get("/:make/:model", wrapAsync(async(req, res) => {
     try {
       const { make, model } = req.params;
       let checkedModel = model
@@ -157,10 +157,10 @@ app.get('/retrieve/:imageName', async (req, res) => {
       console.error("Error:", error);
       res.status(500).send("An error occurred.");
     }
-  });
+  }));
   
 
-app.get("/:make/:model/:year", async(req, res) => {
+app.get("/:make/:model/:year", wrapAsync(async(req, res) => {
   const { make, model, year } = req.params
   let checkedModel = model
       if(isNumeric(checkedModel) === true){
@@ -168,7 +168,7 @@ app.get("/:make/:model/:year", async(req, res) => {
       }
   const cars = await Cars.find({make:make, model:checkedModel, year:year})
   res.render("yearOfModel", { make, model, year, cars})
-})
+}))
 
 
 
@@ -193,4 +193,11 @@ function isNumeric(input) {
 app.listen(3000, () => {
     console.log("APP IS LISTENING ON PORT 3000!");
   });
+
+
+  function wrapAsync(fn){
+    return function (req, res, next) {
+      fn(req, res , next).catch(e => next(e))
+    }
+  }
    
