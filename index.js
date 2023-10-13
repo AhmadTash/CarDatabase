@@ -18,18 +18,21 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 
+mongoose.connect("mongodb+srv://douqa20:h3zBgOBCSCbP1yew@carsdatabase.pia5oyg.mongodb.net/Cars", {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+});
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", () => {
+    console.log("Database connected");
+});
 
 
 
-mongoose
-.connect("mongodb+srv://douqa20:h3zBgOBCSCbP1yew@carsdatabase.pia5oyg.mongodb.net/Cars")
-.then(() => {
-    console.log("MONGO CONNECTION OPEN!!!");
-  })
-  .catch((err) => {
-    console.log("there is an error WITH MONGO CONNECTION");
-    console.log(err);
-  });
 
   const carSchema = new mongoose.Schema({
     cylinders: Number,
