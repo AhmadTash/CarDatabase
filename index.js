@@ -183,9 +183,10 @@ function isNumeric(input) {
 
 
   
-  app.use((err, req, res, next) => {
-    res.send(err)
-  })
+ app.use((err,req,res, next) => {
+  const { status = 500, message = "Something Went Wrong" } = err
+  res.status(status).send(message)
+})
 
 
 
