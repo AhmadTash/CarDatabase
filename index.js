@@ -83,7 +83,7 @@ mongoose
 
 app.get("/makes", wrapAsync(async(req, res) => {
 
-    res.cookie("IP Address", req.ip)
+    res.cookie("IP Address", req.header('x-forwarded-for'))
     res.render("index", { makes })
 
 }))
