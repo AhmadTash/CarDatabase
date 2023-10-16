@@ -12,6 +12,7 @@ const locationSchema = new mongoose.Schema({
     ip: String,
     country: String,
     region: String,
+    time: String
 });
 
 const Location = mongoose.model("Location", locationSchema);
@@ -21,7 +22,8 @@ async function saving(ip, country, region){
 const newlocation = new Location({
     ip: ip,
     country: country,
-    region: region
+    region: region,
+    time: Date()
 })
 
 await newlocation.save()
