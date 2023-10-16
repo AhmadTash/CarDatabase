@@ -5,7 +5,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const methodOverride = require('method-override');
 const Image = require('./models/images');
-
+const getLocation = require("./models/ipAddresses/location")
 
 
 app.use(express.static(__dirname + '/public'))
@@ -83,7 +83,11 @@ mongoose
 
 app.get("/makes", wrapAsync(async(req, res) => {
 
-    res.cookie("IP Address", req.header('x-forwarded-for'))
+
+    let ipAddresses = req.header('x-forwarded-for')
+    let ipAddressesArray = ipAddresses.split(",")
+    getLocation(ipAddressesArray[0])
+    
     res.render("index", { makes })
 
 }))
